@@ -64,6 +64,7 @@ class MSA_processing:
                 line = line.rstrip()
                 if line.startswith(">"):
                     name = line
+                    assert name not in self.seq_name_to_sequence.keys(), f"Duplicate headers found! This will create double or more sequences! Deduplicate your alignment pls."
                     if i==0:
                         self.focus_seq_name = name
                 else:
